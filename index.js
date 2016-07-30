@@ -108,20 +108,24 @@ function strictOrderTables(params) {
 			})
 			$('.table_event').hover(function(){$(this).css({"color":"#59aae9", "cursor":"pointer"})}, function(){$(this).css({"color":"#3f516b"})})
 			$('.before_event').click(function(){
-				var steps = findSteps();
-				var new_steps = [$(this).text()]
-				_.each(steps.slice($(".selected").attr("value")-1, steps.length), function(step){
-					new_steps.push(step)
-				})
-				buildEventSelectors(new_steps);
-				buildFunnel(new_steps);
+				if ($(this).text() != "Direct"){
+					var steps = findSteps();
+					var new_steps = [$(this).text()]
+					_.each(steps.slice($(".selected").attr("value")-1, steps.length), function(step){
+						new_steps.push(step)
+					})
+					buildEventSelectors(new_steps);
+					buildFunnel(new_steps);
+				}
 			})
 			$('.after_event').click(function(){
-				var steps = findSteps();
-				var new_steps = steps.slice(0,$(".selected").attr("value"));
-				new_steps.push($(this).text());
-				buildEventSelectors(new_steps);
-				buildFunnel(new_steps);
+				if ($(this).text() != "Bounced"){
+					var steps = findSteps();
+					var new_steps = steps.slice(0,$(".selected").attr("value"));
+					new_steps.push($(this).text());
+					buildEventSelectors(new_steps);
+					buildFunnel(new_steps);
+				}
 			})
 		})
 	})
