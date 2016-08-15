@@ -133,6 +133,16 @@ tr:nth-child(even) {
     float: left;
     position: relative;
 }
+
+.down-arrow {
+	background: url(//cdn.mxpnl.com/cache/531b9fe2038349c6f1b1916276968d44/images/engage/project_menu_arrow.png);
+    width: 8px;
+    height: 6px;
+    position: relative;
+    top: 19px;
+    left: 107px;
+}
+
 .table_description {
     font-size: 12px;
     font-weight: bold;

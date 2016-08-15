@@ -160,6 +160,9 @@ function buildEventSelectors(steps){
 	var x = 1;
 	$('#eventSelectors').empty();
 	_.each(steps, function(step){
+		if (x > 1){
+		 	$('<div class= "right-arrow"></div>').appendTo('#eventSelectors')
+		}
 		$('<div class="eventSelector" id="eventSelector'+ x +'"></div>').appendTo('#eventSelectors').MPEventSelect();
 		x++
 	})
@@ -205,6 +208,7 @@ function buildFunnel(steps) {
 				if (conversion == 100.00){
 					conversion = (100.0).toFixed(1);
 				}
+				$('<div class="down-arrow"></div>').appendTo("#steps");
 				$('<div class="percentage"><div class="percentageText">'+ conversion +'%</div></div>').appendTo("#steps");
 			}
 			count = step[moment(fromDate).format('YYYY-MM-DD')].count;
