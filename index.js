@@ -12,7 +12,7 @@ $(document).ready(function(){
 	$('#run').click(function(){
 		var steps = [];
 		_.each($('#eventSelectors').children(), function(child){
-			if ($(child).val() != null){
+			if ($("#"+child.id).val() != null){
 				steps.push($(child).val());
 			}
 		})
@@ -94,6 +94,7 @@ function strictOrderTables(params) {
 			},
 			params
 		).done(function(data){
+			$('.loader').toggle();
 			$('#tables').empty();
 			$('<table id="before"></table>').appendTo('#tables')
 			$('<div class="table_description">Event Completed Immediately Before</div>').appendTo('#before')
@@ -208,8 +209,9 @@ function buildFunnel(steps) {
 				if (conversion == 100.00){
 					conversion = (100.0).toFixed(1);
 				}
-				$('<div class="down-arrow"></div>').appendTo("#steps");
+				$('<div class="top-arrow down-arrow"></div>').appendTo("#steps");
 				$('<div class="percentage"><div class="percentageText">'+ conversion +'%</div></div>').appendTo("#steps");
+				$('<div class="bottom-arrow down-arrow top"></div>').appendTo("#steps");
 			}
 			count = step[moment(fromDate).format('YYYY-MM-DD')].count;
 			var eventName = step[moment(fromDate).format('YYYY-MM-DD')].goal;
@@ -227,6 +229,7 @@ function buildFunnel(steps) {
 			};
 			$('#tables').empty();
 			if ($(this).css("background-color") == "rgb(89, 170, 233)"){
+				$('.loader').toggle();
 				$(".step").css("background-color", "#59aae9")
 				$(this).css("background-color", "#3f516b")
 				$(".selected").removeClass("selected")

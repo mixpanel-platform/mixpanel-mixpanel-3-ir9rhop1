@@ -51,9 +51,38 @@
 	text-align: center;
 	left: 50%;
 	width: 120px;
-	margin-top: 47px;
+	margin-top: 27px;
 	cursor: pointer;
 }
+
+#loaders-container {
+    height: 40px;
+    width: 800px;
+    position: relative;
+    left: 50%;
+    margin-left: -40px;
+}
+
+.loader {
+    display: none;
+}
+
+.right-loader {
+    position: relative;
+    top: 150px;
+    margin-left: 600px;
+}
+
+.left-loader {
+    position: relative;
+    top: 150px;
+    margin-left: -300px;
+}
+
+#loaders {
+    height: 40px;
+}
+
 .step {
 	height: 58px;
 	width: 225px;
@@ -139,8 +168,13 @@ tr:nth-child(even) {
     width: 8px;
     height: 6px;
     position: relative;
-    top: 19px;
+    top: -33px;
     left: 107px;
+}
+
+.bottom-arrow {
+    position: relative;
+    top: -13px;
 }
 
 .table_description {
