@@ -12,8 +12,8 @@ $(document).ready(function(){
 	$('#run').click(function(){
 		var steps = [];
 		_.each($('#eventSelectors').children(), function(child){
-			if ($("#"+child.id).val() != null){
-				steps.push($("#"+child.id).val());
+			if ($(child).val() != null){
+				steps.push($(child).val());
 			}
 		})
 		buildFunnel(steps)
@@ -133,9 +133,9 @@ function strictOrderTables(params) {
 
 function findSteps(){
 	var steps = []
-	_.each($("#steps").children(), function(div){
-		if ($(div).attr("value")){
-			steps.push($("#eventSelector" + $(div).attr("value")).val())
+	_.each($("#eventSelectors").children(), function(div){
+		if ($(div).val()){
+			steps.push($(div).val())
 		}
 	})
 	return steps
